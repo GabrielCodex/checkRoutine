@@ -22,32 +22,48 @@ class CheckRoutineTableViewController: UITableViewController {
 
     
     // MARK: - CheckRoutineTableViewController UITableViewDelegate Methods
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Toggles cell accessoryType from checkmark to none
+        // Maybe refactor and have a custom accessoryType
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark{
+                cell.accessoryType = .none
+            }else {
+                cell.accessoryType = .checkmark
+            }
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     
     // MARK: - CheckRoutineTableViewController UITableViewDataSource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CheckroutineItem", for: indexPath)
         
-        return cell 
+        let label = cell.viewWithTag(100) as! UILabel
+        
+        if indexPath.row == 0 {
+            label.text = "I am the man"
+        }else if indexPath.row == 1 {
+            label.text = "Who provides"
+        }else if indexPath.row == 2{
+            label.text = "CAN you see me?"
+        }
+        
+        
+        
+        return cell
     }
 
 }
-//
-//extension CheckRoutineTableViewController: UITableViewDelegate{
-//
-//
-//}
-//
-//extension CheckRoutineTableViewController: UITableViewDataSource{
-//
-//
-//}
+
 
