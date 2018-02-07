@@ -26,6 +26,7 @@ class CheckRoutineTableViewController: UITableViewController {
         
         // Toggles cell accessoryType from checkmark to none
         // Maybe refactor and have a custom accessoryType
+        
         if let cell = tableView.cellForRow(at: indexPath) {
             if cell.accessoryType == .checkmark{
                 cell.accessoryType = .none
@@ -42,7 +43,7 @@ class CheckRoutineTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
